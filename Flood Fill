@@ -1,0 +1,23 @@
+class Solution {
+    public int[][] floodFill(int[][] img, int sr, int sc, int Color) {
+        int color1 = img[sr][sc];
+        if (color1 != Color){ 
+            dfs(img,sr,sc,color1,Color);   
+        }
+        return img;
+    
+    }
+    public static void dfs(int[][] img,int sr,int sc,int color1,int Color){
+        if(sr<0||sr>=img.length||sc>=img[0].length||sc<0||img[sr][sc]!=color1){
+            return;   
+        }
+        img[sr][sc] =  Color;
+        dfs(img,sr+1,sc,color1,Color);
+        dfs(img,sr-1,sc,color1,Color);
+        dfs(img,sr,sc+1,color1,Color);
+        dfs(img,sr,sc-1,color1,Color);
+    }
+}
+
+
+// took some help from Discussions and learnt it.
